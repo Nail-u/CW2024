@@ -1,7 +1,5 @@
 package com.example.demo;
 
-import com.example.demo.UserPlane;
-
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 

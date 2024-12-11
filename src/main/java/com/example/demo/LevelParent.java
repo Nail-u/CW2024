@@ -4,15 +4,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import javafx.animation.*;
-import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.*;
-import javafx.scene.input.*;
 import javafx.util.Duration;
 
-import com.example.demo.CollisionHandler;
-import com.example.demo.MovementHandler;
 
 public abstract class LevelParent extends Observable {
 

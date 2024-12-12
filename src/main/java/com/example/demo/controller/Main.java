@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import com.example.demo.MainMenu;
+
 
 public class Main extends Application {
 
@@ -20,8 +22,10 @@ public class Main extends Application {
 		stage.setResizable(false);
 		stage.setHeight(SCREEN_HEIGHT);
 		stage.setWidth(SCREEN_WIDTH);
-		myController = new Controller(stage);
-		myController.launchGame();
+		//myController = new Controller(stage);
+		//myController.launchGame();
+		MainMenu menu = new MainMenu();
+		menu.start(stage);
 
 	}
 

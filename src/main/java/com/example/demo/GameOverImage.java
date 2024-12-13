@@ -19,14 +19,10 @@ public class GameOverImage extends Pane {
 	private static final int SCREEN_WIDTH = 1300;
 	private static final int SCREEN_HEIGHT = 750;
 	private MainMenu mainMenu;
-	private Stage primaryStage;
-	private Controller retryController;
-	private Main main;
 		
 		
-			public GameOverImage(double xPosition, double yPosition, MainMenu mainMenu, Stage primaryStage) {
+			public GameOverImage(double xPosition, double yPosition, MainMenu mainMenu) {
 			this.mainMenu = mainMenu;
-			this.primaryStage = primaryStage;
 	
 			Rectangle background = new Rectangle(SCREEN_WIDTH, SCREEN_HEIGHT);
 			background.setOpacity(0.5);
@@ -54,8 +50,7 @@ public class GameOverImage extends Pane {
 		}
 
 	private void retryGame() {
-		MainMenu restart = new MainMenu();
-		restart.start(primaryStage);
+		mainMenu.startGame(mainMenu.getStage());
 	}
 
 

@@ -9,7 +9,7 @@ public class Boss extends FighterPlane {
 	private static final double INITIAL_Y_POSITION = 400;
 	private static final double PROJECTILE_Y_POSITION_OFFSET = 75.0;
 	private static final double BOSS_FIRE_RATE = .07;
-	private static final double BOSS_SHIELD_PROBABILITY = 0.2;
+	private static final double BOSS_SHIELD_PROBABILITY = 0.02;
 	private static final int IMAGE_HEIGHT = 300;
 	private static final int VERTICAL_VELOCITY = 8;
 	private static final int HEALTH = 50;
@@ -47,6 +47,7 @@ public class Boss extends FighterPlane {
 		if (currentPosition < Y_POSITION_UPPER_BOUND || currentPosition > Y_POSITION_LOWER_BOUND) {
 			setTranslateY(initialTranslateY);
 		}
+		updateShieldPosition();
 	}
 	
 	@Override
@@ -134,5 +135,11 @@ public class Boss extends FighterPlane {
 	public ShieldImage getShieldImage() {
 		return shield;
 	}
+
+	private void updateShieldPosition() {
+		shield.setLayoutX(getLayoutX() + getTranslateX() - 95);
+		shield.setLayoutY(getLayoutY() + getTranslateY() );
+	}
+
 
 }

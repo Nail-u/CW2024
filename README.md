@@ -1,4 +1,4 @@
--In LevelParents, added user.destroy() to goToNextLevel function
+In LevelParents, added user.destroy() to goToNextLevel function
 without user.destroy(), every asset from the previous level (bullets etc) was kept
 In shieldimage class, changed shield.jpg to shield.png
 

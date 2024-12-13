@@ -2,30 +2,18 @@ package com.example.demo;
 
 import javafx.scene.Group;
 
+/**
+ * Level view for level four.
+ */
 public class LevelViewLevelFour extends LevelView {
 
-	/*private static final int SHIELD_X_POSITION = 1150;
-	private static final int SHIELD_Y_POSITION = 500;
-	private final Group root;
-	private final ShieldImage shieldImage;*/
-	
+	/**
+	 * Constructor for level view for level four.
+	 * @param root
+	 * @param heartsToDisplay
+	 */
 	public LevelViewLevelFour(Group root, int heartsToDisplay) {
 		super(root, heartsToDisplay);
-		//this.root = root;
-		/*this.shieldImage = new ShieldImage(SHIELD_X_POSITION, SHIELD_Y_POSITION);
-		addImagesToRoot();*/
 	}
 	
-	/*private void addImagesToRoot() {
-	root.getChildren().addAll(shieldImage);
-	}
-	
-	public void showShield() {
-		shieldImage.showShield();
-	}
-
-	public void hideShield() {
-		shieldImage.hideShield();
-	}
-*/
 }

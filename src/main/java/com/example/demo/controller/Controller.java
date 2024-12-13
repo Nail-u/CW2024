@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-// imports necessary classes for reflection, observer pattern, JavaFX componentsand a custom Levelparent clas
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Observable;
@@ -11,19 +10,37 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import com.example.demo.LevelParent;
 
-//The Controller class implements the Observer interface, meaning it can observe changes in observable objects.
+/**
+ * Controller class to control the game.
+ */
 public class Controller implements Observer {
 
-	// LEVEL_ONE_CLASS_NAME is a constant that holds the fully qualified name of the LevelOne class. stage is a final field that holds a reference to the JavaFX Stage object.
-
+	/**
+	 * Level to go to after game is launched.
+	 */
 	private static final String LEVEL_ONE = "com.example.demo.LevelOne";
 	private final Stage stage;
 
+	/**
+	 * Creates a new Controller.
+	 * 
+	 * @param stage the stage
+	 */
 	public Controller(Stage stage) {
 		this.stage = stage;
 	}
 
-	// The launchGame method is called when the game is launched. It shows the stage and calls the goToLevel method with the LEVEL_ONE_CLASS_NAME constant as an argument.
+	/**
+	 * Launches the game.
+	 * 
+	 * @throws ClassNotFoundException
+	 * @throws NoSuchMethodException
+	 * @throws SecurityException
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
 	public void launchGame() throws ClassNotFoundException, NoSuchMethodException, SecurityException,
 			InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException  {
 
@@ -31,6 +48,18 @@ public class Controller implements Observer {
 			goToLevel(LEVEL_ONE);
 	}
 
+	/**
+	 * Goes to the level specified by the class name.
+	 * 
+	 * @param className the class name
+	 * @throws ClassNotFoundException
+	 * @throws NoSuchMethodException
+	 * @throws SecurityException
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
 	private void goToLevel(String className) throws ClassNotFoundException, NoSuchMethodException, SecurityException,
 			InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 			Class<?> myClass = Class.forName(className);
@@ -43,6 +72,9 @@ public class Controller implements Observer {
 
 	}
 
+	/**
+	 * Updates the observer.
+	 */
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		try {

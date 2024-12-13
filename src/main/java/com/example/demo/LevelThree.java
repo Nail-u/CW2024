@@ -1,19 +1,57 @@
 package com.example.demo;
 
+/**
+ * Level three of the game.
+ */
 public class LevelThree extends LevelParent {
+
+	/**
+	 * Boolean to check if the level is transitioning.
+	 */
     private boolean LevelTransition = false;
 	
+	/**
+	 * String representing the background image name.
+	 */
 	private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/levelthreebg.jpg";
+
+	/**
+	 * String representing the next level.
+	 */
 	private static final String NEXT_LEVEL = "com.example.demo.LevelFour";
+
+	/**
+	 * Integer representing the total number of enemies.
+	 */
 	private static final int TOTAL_ENEMIES = 10;
+
+	/**
+	 * Integer representing the number of kills to advance.
+	 */
 	private static final int KILLS_TO_ADVANCE = 10;
+
+	/**
+	 * Double representing the enemy spawn probability.
+	 */
 	private static final double ENEMY_SPAWN_PROBABILITY = .20;
+
+	/**
+	 * Integer representing the player's initial health.
+	 */
 	private static final int PLAYER_INITIAL_HEALTH = 10;
 
+	/**
+	 * Constructor for level three.
+	 * @param screenHeight The height of the screen.
+	 * @param screenWidth The width of the screen.
+	 */
 	public LevelThree(double screenHeight, double screenWidth) {
 		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH);
 	}
 
+	/**
+	 * Checks if the game is over.
+	 */
 	@Override
 	protected void checkIfGameOver() {
 		if (userIsDestroyed()) {
@@ -25,11 +63,17 @@ public class LevelThree extends LevelParent {
 		}	
 	}
 
+	/**
+	 * Initializes the friendly units for this level.
+	 */
 	@Override
 	protected void initializeFriendlyUnits() {
 		getRoot().getChildren().add(getUser());
 	}
 
+	/**
+	 * Spawns the enemy units for this level.
+	 */
 	@Override
 	protected void spawnEnemyUnits() {
 		int currentNumberOfEnemies = getCurrentNumberOfEnemies();
@@ -42,11 +86,18 @@ public class LevelThree extends LevelParent {
 		}
 	}
 
+	/**
+	 * Gets the number of health points the player has
+	 */
 	@Override
 	protected LevelView instantiateLevelView() {
 		return new LevelView(getRoot(), PLAYER_INITIAL_HEALTH);
 	}
 
+	/**
+	 * Checks if the user has reached the kill target.
+	 * @return True if the user has reached the kill target, false otherwise.
+	 */
 	private boolean userHasReachedKillTarget() {
 		return getUser().getNumberOfKills() >= KILLS_TO_ADVANCE;
 	}

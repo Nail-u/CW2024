@@ -16,9 +16,11 @@ public class MainMenu extends Application {
     private static final int SCREEN_HEIGHT = 750;
 	private static final String BACKGROUND_IMAGE = "/com/example/demo/images/MenuBackground.jpg";
     private Controller MenuController;
+    Stage primaryStage;
 
     @Override
     public void start(Stage primaryStage) {
+
         // Create the Start button
         Button startButton = new Button("Start");
         startButton.setOnAction(e -> startGame(primaryStage));
@@ -50,10 +52,16 @@ public class MainMenu extends Application {
         primaryStage.setTitle("Sky Battle");
         primaryStage.setScene(scene);
         primaryStage.show();
+
     }
 
+    public Stage getStage() {
+        return primaryStage;
+    }
+
+
     // Placeholder for starting the game
-    private void startGame(Stage primaryStage) {
+    public void startGame(Stage primaryStage) {
         System.out.println("Game Started!");
         MenuController = new Controller(primaryStage);
         try {
@@ -62,5 +70,7 @@ public class MainMenu extends Application {
             ex.printStackTrace();
         }
     }
+
+    
     
 }

@@ -164,7 +164,6 @@ public abstract class LevelParent extends Observable {
 		}
 	}
 
-	
 	protected void winGame() {
 		timeline.stop();
 		levelView.showWinImage();
